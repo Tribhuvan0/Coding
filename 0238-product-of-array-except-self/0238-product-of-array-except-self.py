@@ -1,5 +1,6 @@
 class Solution:
-    def productExceptSelf(self,nums):
+    def productEceptSelf(self,nums):
+        #O(n) space complexity
         prefix = []
         postfix = []
         output = []
@@ -27,6 +28,19 @@ class Solution:
                 output.append(prefix[-2])
             
         return output
+    
+    def productExceptSelf(self,nums):
+        #O(1) space complexity
+        res = [0]*len(nums)
+        prefix = 1
+        for i in range(len(nums)):
+            res[i] = prefix
+            prefix *= nums[i]
+        postfix = 1
+        for i in range(len(nums) - 1, -1, -1):
+            res[i] *= postfix
+            postfix *= nums[i]
+        return res
         
             
         
