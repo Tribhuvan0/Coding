@@ -3,7 +3,8 @@ class Solution:
         slow, fast = 0,0
         while True:
             slow = nums[slow]
-            fast = nums[nums[fast]]
+            fast = nums[fast]
+            fast = nums[fast] #for each step in slow fast moves 2 steps
             if slow == fast:
                 break
         
