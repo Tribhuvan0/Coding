@@ -9,7 +9,7 @@ class Solution:
     
         for i in range(2,len(s)+1):
             #one digit
-            if 0 < int(s[i-1:i]) <= 9:
+            if 0 < int(s[i-1]) <= 9:
                 dp[i] += dp[i-1]
             if 10 <= int(s[i-2:i]) <= 26:
                 dp[i] += dp[i-2]
