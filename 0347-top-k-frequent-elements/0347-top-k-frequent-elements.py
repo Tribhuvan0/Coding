@@ -1,25 +1,19 @@
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
         dicti = {}
-        freq = {}
-        for i in range(0, len(nums)):
-            if nums[i] not in dicti:
-                dicti[nums[i]] = 1
-            else:
-                dicti[nums[i]] += 1
+        arr = [[] for _ in range(len(nums) + 1)]
+        res = []
+        for n in nums:
+            dicti[n] = 1 + dicti.get(n,0)
         
-        for z,v in dicti.items():
-            if v not in freq:
-                freq[v] = [z]
-            else:
-                freq[v].append(z)
+        for key,val in dicti.items():
+            arr[val].append(key)
         
-        arr = []
+        for i in range(len(arr) - 1, 0, -1):
+            for num in arr[i]:
+                res.append(num)
+                if len(res) == k:
+                    return res
         
-        for x in range(len(nums), 0, -1):
-            if x in freq:
-                for i in freq[x]:
-                    arr.append(i)
         
-        return [arr[x] for x in range(0, k)]
         
