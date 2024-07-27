@@ -3,11 +3,10 @@ class Solution:
         #one pass solution
         numMap = {}
         for i in range(len(nums)):
-            number = target - nums[i]
-            if number in numMap:
-                return [i,numMap[number]]
+            diff = target - nums[i]
+            if diff in numMap:
+                return [i,numMap[diff]]
             numMap[nums[i]] = i
-        return []
                 
     #Two pass solution
     def twoSumPass(self, nums,target):
