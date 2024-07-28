@@ -1,13 +1,12 @@
 class Solution:
     def twoSum(self, numbers: List[int], target: int) -> List[int]:
-        left_ptr, right_ptr = 0, len(numbers) - 1
-        while left_ptr < right_ptr:
-            if numbers[left_ptr]+numbers[right_ptr] > target:
-                right_ptr -= 1
-            elif numbers[left_ptr]+numbers[right_ptr] < target:
-                left_ptr += 1
-            elif numbers[left_ptr]+numbers[right_ptr] == target:
-                return [left_ptr+1,right_ptr+1]
-            
-        return [-1,-1]
+        #reference from https://leetcode.com/discuss/study-guide/1688903/Solved-all-#two-pointers-problems-in-100-days
+        l,r = 0,len(numbers) - 1
+        while l < r:
+            if numbers[l] + numbers[r] > target:
+                r -= 1
+            elif numbers[l] + numbers[r] < target:
+                l += 1
+            else:
+                return [l+1, r+1]
         
